@@ -3,7 +3,7 @@
  * Plugin Name: Newsletter, SMTP, Email marketing and Subscribe forms by Brevo
  * Plugin URI: https://www.brevo.com/?r=wporg
  * Description: Manage your contact lists, subscription forms and all email and marketing-related topics from your wp panel, within one single plugin
- * Version: 3.1.90
+ * Version: 3.1.91
  * Author: Brevo
  * Author URI: https://www.brevo.com/?r=wporg
  * License: GPLv2 or later
@@ -64,6 +64,9 @@ if ( ! class_exists( 'SIB_Manager' ) ) {
 	 * Class SIB_Manager
 	 */
 	class SIB_Manager {
+
+        private const ROUTE_METHODS = 'methods';
+        private const ROUTE_CALLBACK = 'callback';
 
 		/** Main setting option name */
 		const MAIN_OPTION_NAME = 'sib_main_option';
@@ -243,6 +246,7 @@ if ( ! class_exists( 'SIB_Manager' ) ) {
 			add_action( 'upgrader_process_complete', array( &$this, 'my_upgrade_function' ), 10, 2);
 			add_action( 'admin_init', array( &$this, 'admin_init' ), 9999 );
 			add_action( 'admin_menu', array( &$this, 'admin_menu' ), 9999 );
+			add_action('rest_api_init', array($this, 'create_brevo_rest_endpoints'));
 
 			add_action( 'wp_print_scripts', array( &$this, 'frontend_register_scripts' ), 9999 );
 			add_action( 'wp_enqueue_scripts', array( &$this, 'wp_head_ac' ), 999 );
@@ -1689,6 +1693,59 @@ if ( ! class_exists( 'SIB_Manager' ) ) {
 
 			return $attributes;
 		}
+
+		static function create_brevo_rest_endpoints() {
+			$path = '/mailin_disconnect';
+
+			$arguments = array(
+                self::ROUTE_METHODS    => 'DELETE',
+				self::ROUTE_CALLBACK   => function ($request) {
+					return self::mailin_disconnect($request);
+				}
+			);
+
+  	        register_rest_route("mailin/v1", $path, $arguments);
+		}
+
+        private static function mailin_disconnect($request) {
+			$request = $request->get_params();
+			$user_connection_id = isset($request['id']) ? $request['id'] : '';
+            if (!empty($user_connection_id)) {
+                $installationId = get_option( SIB_Manager::INSTALLATION_ID );
+				
+                if ($user_connection_id == $installationId) {
+                    self::delete_connection();
+                } else {
+                    return new WP_REST_Response(
+                        array(
+                            'message' => "user_connection_id not found"
+                        ), 404);
+                }
+            }
+        }
+
+        private static function delete_connection()
+        {
+            $setting = array();
+			update_option( self::MAIN_OPTION_NAME, $setting );
+			delete_option(self::API_KEY_V3_OPTION_NAME);
+
+			$home_settings = array(
+				'activate_email' => 'no',
+				'activate_ma' => 'no',
+			);
+			update_option( self::HOME_OPTION_NAME, $home_settings );
+
+			// remove sync users option.
+			delete_option( 'sib_sync_users' );
+			// remove all transients.
+			SIB_API_Manager::remove_transients();
+
+			// remove all forms.
+			SIB_Forms::removeAllForms();
+			SIB_Forms_Lang::remove_all_trans();
+			delete_option(SIB_Manager::INSTALLATION_ID);
+        }
     }
 
 	add_action( 'sendinblue_init', 'sendinblue_init' );
