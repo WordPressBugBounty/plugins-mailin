@@ -3,7 +3,7 @@
  * Plugin Name: Newsletter, SMTP, Email marketing and Subscribe forms by Brevo
  * Plugin URI: https://www.brevo.com/?r=wporg
  * Description: Manage your contact lists, subscription forms and all email and marketing-related topics from your wp panel, within one single plugin
- * Version: 3.1.91
+ * Version: 3.1.92
  * Author: Brevo
  * Author URI: https://www.brevo.com/?r=wporg
  * License: GPLv2 or later
@@ -65,8 +65,9 @@ if ( ! class_exists( 'SIB_Manager' ) ) {
 	 */
 	class SIB_Manager {
 
-        private const ROUTE_METHODS = 'methods';
-        private const ROUTE_CALLBACK = 'callback';
+        	private const ROUTE_METHODS = 'methods';
+        	private const ROUTE_CALLBACK = 'callback';
+		private const PERMISSION_CALLBACK = 'permission_callback';
 
 		/** Main setting option name */
 		const MAIN_OPTION_NAME = 'sib_main_option';
@@ -1701,7 +1702,8 @@ if ( ! class_exists( 'SIB_Manager' ) ) {
                 self::ROUTE_METHODS    => 'DELETE',
 				self::ROUTE_CALLBACK   => function ($request) {
 					return self::mailin_disconnect($request);
-				}
+				},
+				self::PERMISSION_CALLBACK => '__return_true',
 			);
 
   	        register_rest_route("mailin/v1", $path, $arguments);
