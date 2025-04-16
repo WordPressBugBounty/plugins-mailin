@@ -1,0 +1,1217 @@
+# Copyright (C) 2025 Brevo
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Newsletter, SMTP, Email marketing and Subscribe forms by Brevo 3.1.93\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/mailin\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-04-04T11:03:54+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: mailin\n"
+
+#. Plugin Name of the plugin
+#: sendinblue.php
+msgid "Newsletter, SMTP, Email marketing and Subscribe forms by Brevo"
+msgstr ""
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: sendinblue.php
+msgid "https://www.brevo.com/?r=wporg"
+msgstr ""
+
+#. Description of the plugin
+#: sendinblue.php
+msgid "Manage your contact lists, subscription forms and all email and marketing-related topics from your wp panel, within one single plugin"
+msgstr ""
+
+#. Author of the plugin
+#: sendinblue.php
+#: inc/sib-api-manager.php:558
+#: page/page-home.php:43
+#: page/page-home.php:544
+#: page/page-home.php:781
+msgid "Brevo"
+msgstr ""
+
+#: inc/push-admin.php:25
+msgid "Web Push Notifications"
+msgstr ""
+
+#: inc/push-admin.php:37
+msgid "Grow your audience with push notifications"
+msgstr ""
+
+#: inc/push-admin.php:40
+#: inc/push-admin.php:200
+msgid "Notify your readers whenever a new post is published."
+msgstr ""
+
+#: inc/push-admin.php:41
+#: inc/push-admin.php:201
+msgid "Let your users subscribe to their favorite topics."
+msgstr ""
+
+#: inc/push-admin.php:191
+msgid "Activate push notifications"
+msgstr ""
+
+#: inc/push-admin.php:194
+#: page/page-home.php:431
+msgid "Please wait, activation might take up to a minute."
+msgstr ""
+
+#: inc/push-admin.php:197
+msgid "Grow your audience with push notifications:"
+msgstr ""
+
+#: inc/push-admin.php:203
+msgid "Set up automated e-commerce notifications for your WooCommerce business."
+msgstr ""
+
+#. translators: %s: Type of post. Usually is the string "post"
+#: inc/push-admin.php:221
+msgid "Send notification on %s update"
+msgstr ""
+
+#. translators: %s: Type of post. Usually is the string "post"
+#: inc/push-admin.php:224
+msgid "Send notification on %s publish"
+msgstr ""
+
+#: inc/push-admin.php:230
+msgid "Target audience"
+msgstr ""
+
+#: inc/push-admin.php:238
+msgid "Everybody"
+msgstr ""
+
+#: inc/push-admin.php:252
+msgid "Users in segment(s)"
+msgstr ""
+
+#: inc/push-admin.php:256
+msgid "We'll notify users that match at least one of these segments:"
+msgstr ""
+
+#: inc/push-admin.php:260
+#: inc/push-admin.php:287
+msgid "Everyone"
+msgstr ""
+
+#: inc/push-admin.php:279
+msgid "Users in list(s)"
+msgstr ""
+
+#: inc/push-admin.php:283
+msgid "We'll notify users that match at least one of these lists:"
+msgstr ""
+
+#: inc/push-admin.php:306
+msgid "Users with tag(s)"
+msgstr ""
+
+#: inc/push-admin.php:310
+msgid "We'll notify users that match at least one of these tags:"
+msgstr ""
+
+#: inc/push-admin.php:328
+msgid "Send later"
+msgstr ""
+
+#: inc/push-admin.php:329
+msgid "Delay the notification after this post gets published:"
+msgstr ""
+
+#: inc/push-admin.php:332
+msgid "No delay"
+msgstr ""
+
+#: inc/push-admin.php:337
+msgid "minutes"
+msgstr ""
+
+#: inc/push-admin.php:344
+msgid "hour"
+msgid_plural "hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/push-admin.php:348
+msgid "Google campaign parameters"
+msgstr ""
+
+#: inc/push-admin.php:349
+msgid "Campaign params help you see push notification traffic in Google Analytics."
+msgstr ""
+
+#: inc/push-admin.php:349
+msgid "Learn more"
+msgstr ""
+
+#: inc/push-admin.php:772
+msgid "Brevo push notification sent."
+msgstr ""
+
+#. translators: %d is the number of subscribers, %s is the date and time
+#: inc/push-admin.php:789
+msgid "Brevo will send a notification to %d subscribers on %s."
+msgstr ""
+
+#. translators: %d is the number of subscribers
+#: inc/push-admin.php:792
+msgid "Brevo notification sent to %d subscribers."
+msgstr ""
+
+#: inc/push-admin.php:795
+msgid "Brevo notification sent but the target audience is empty."
+msgstr ""
+
+#: inc/push-admin.php:800
+msgid "Brevo notification could not be sent."
+msgstr ""
+
+#: inc/push-amp.php:36
+msgid "Subscribe to news updates"
+msgstr ""
+
+#: inc/push-amp.php:39
+msgid "Unsubscribe from news updates"
+msgstr ""
+
+#: inc/push-utils.php:299
+#: inc/push-utils.php:369
+msgid "My WordPress Site"
+msgstr ""
+
+#: inc/push-woocommerce.php:532
+msgid "Cart Reminder"
+msgstr ""
+
+#: inc/push-woocommerce.php:533
+msgid "Your cart is about to expire! Don't miss out the brand you love! 😍"
+msgstr ""
+
+#: inc/sib-api-manager.php:542
+msgid "Subscription confirmed"
+msgstr ""
+
+#: inc/sib-api-manager.php:544
+msgid "Please confirm subscription"
+msgstr ""
+
+#: inc/sib-api-manager.php:557
+#: page/page-home.php:780
+msgid "no-reply@"
+msgstr ""
+
+#: inc/sib-api-manager.php:695
+msgid "Contact synchronization has started."
+msgstr ""
+
+#: inc/sib-api-manager.php:700
+msgid "Something went wrong. PLease try again."
+msgstr ""
+
+#: inc/sib-api-manager.php:798
+msgid "Unsubscribe"
+msgstr ""
+
+#: inc/sib-api-manager.php:818
+msgid "Your request has been taken into account."
+msgstr ""
+
+#: inc/sib-api-manager.php:820
+msgid "The user has been unsubscribed"
+msgstr ""
+
+#: inc/sib-api-manager.php:905
+msgid "Thank you for subscribing"
+msgstr ""
+
+#: inc/sib-api-manager.php:907
+msgid "Please Try Again"
+msgstr ""
+
+#: inc/sib-api-manager.php:932
+msgid "You have just subscribed to the newsletter of "
+msgstr ""
+
+#: inc/sib-api-manager.php:935
+msgid "-Brevo"
+msgstr ""
+
+#: inc/table-forms.php:15
+msgid "Form"
+msgstr ""
+
+#: inc/table-forms.php:16
+#: page/page-form.php:56
+#: page/page-form.php:161
+msgid "Forms"
+msgstr ""
+
+#: inc/table-forms.php:55
+msgid "No forms avaliable."
+msgstr ""
+
+#: inc/table-forms.php:151
+msgid "Form Name"
+msgstr ""
+
+#: inc/table-forms.php:152
+msgid "Shortcode"
+msgstr ""
+
+#: inc/table-forms.php:153
+msgid "Visible attributes"
+msgstr ""
+
+#: inc/table-forms.php:154
+#: page/page-form.php:680
+#: page/page-form.php:681
+msgid "Linked List"
+msgstr ""
+
+#: inc/table-forms.php:155
+msgid "Last Update"
+msgstr ""
+
+#: inc/table-forms.php:269
+msgid "Add New Form"
+msgstr ""
+
+#: model/model-forms.php:336
+msgid "Default Form"
+msgstr ""
+
+#: model/model-forms.php:351
+msgid "Thank you, you have successfully registered !"
+msgstr ""
+
+#: model/model-forms.php:352
+msgid "Something wrong occured"
+msgstr ""
+
+#: model/model-forms.php:353
+msgid "You have already registered"
+msgstr ""
+
+#: model/model-forms.php:354
+msgid "Your email address is invalid"
+msgstr ""
+
+#: model/model-forms.php:355
+msgid "Please fill out this field"
+msgstr ""
+
+#: page/page-form.php:141
+msgid "You are about to change the language"
+msgstr ""
+
+#: page/page-form.php:144
+msgid "Please make sure that you've saved all the changes. We will have to reload the page."
+msgstr ""
+
+#: page/page-form.php:145
+msgid "Do you want to continue?"
+msgstr ""
+
+#: page/page-form.php:148
+msgid "Ok"
+msgstr ""
+
+#: page/page-form.php:149
+msgid "Cancel"
+msgstr ""
+
+#: page/page-form.php:164
+msgid "Note: Forms created in Brevo plugin for WordPress won't be displayed in Forms section in Brevo application"
+msgstr ""
+
+#: page/page-form.php:242
+#: page/page-form.php:916
+msgid "Subscription form"
+msgstr ""
+
+#: page/page-form.php:248
+msgid "Form Name : "
+msgstr ""
+
+#: page/page-form.php:280
+msgid "Use the shortcode"
+msgstr ""
+
+#: page/page-form.php:290
+msgid "inside a post, page or text widget to display your sign-up form."
+msgstr ""
+
+#: page/page-form.php:292
+msgid "Do not copy and paste the above form mark up, that will not work"
+msgstr ""
+
+#: page/page-form.php:299
+msgid "Add a new Field"
+msgstr ""
+
+#: page/page-form.php:300
+msgid "Add a New Field"
+msgstr ""
+
+#: page/page-form.php:300
+msgid "Choose an attribute and add it to the subscription form of your Website"
+msgstr ""
+
+#: page/page-form.php:309
+#: page/page-form.php:389
+msgid "Label"
+msgstr ""
+
+#: page/page-form.php:310
+#: page/page-form.php:316
+#: page/page-form.php:323
+#: page/page-form.php:390
+msgid "Optional"
+msgstr ""
+
+#: page/page-form.php:315
+msgid "Place holder"
+msgstr ""
+
+#: page/page-form.php:322
+msgid "Initial value"
+msgstr ""
+
+#: page/page-form.php:329
+msgid "Button Text"
+msgstr ""
+
+#: page/page-form.php:336
+#: page/page-form.php:396
+msgid "Required field ?"
+msgstr ""
+
+#: page/page-form.php:342
+msgid "Drop-down List"
+msgstr ""
+
+#: page/page-form.php:345
+msgid "Radio List"
+msgstr ""
+
+#: page/page-form.php:353
+#: page/page-form.php:359
+#: page/page-form.php:404
+#: page/page-form.php:406
+#: page/page-form.php:434
+#: page/page-form.php:436
+#: page/page-form.php:512
+#: page/page-form.php:552
+#: page/page-form.php:594
+msgid "Add to form"
+msgstr ""
+
+#: page/page-form.php:359
+#: page/page-form.php:406
+#: page/page-form.php:436
+#: page/page-form.php:514
+#: page/page-form.php:554
+#: page/page-form.php:596
+msgid "Please click where you want to insert the field and click on this button. By default, the new field will be added at top."
+msgstr ""
+
+#: page/page-form.php:363
+#: page/page-form.php:410
+msgid "Generated HTML"
+msgstr ""
+
+#: page/page-form.php:375
+#: page/page-form.php:376
+msgid "Add Multi-List Subscription"
+msgstr ""
+
+#: page/page-form.php:376
+msgid "Enable your contacts to subscribe to content based on specific interests or preferences. Create a contact list for each interest and allow them to subscribe using this field"
+msgstr ""
+
+#: page/page-form.php:381
+msgid "Please select the lists"
+msgstr ""
+
+#: page/page-form.php:420
+msgid "Compliance Note"
+msgstr ""
+
+#: page/page-form.php:421
+msgid "Add compliance note"
+msgstr ""
+
+#: page/page-form.php:421
+msgid "Create GDPR-compliant subscription forms for collecting email addresses."
+msgstr ""
+
+#: page/page-form.php:424
+#: page/page-form.php:449
+#: page/page-form.php:568
+#: page/page-form.php:704
+#: page/page-form.php:742
+#: page/page-form.php:798
+#: page/page-home.php:312
+#: page/page-home.php:372
+msgid "Yes"
+msgstr ""
+
+#: page/page-form.php:425
+#: page/page-form.php:450
+#: page/page-form.php:569
+#: page/page-form.php:709
+#: page/page-form.php:747
+#: page/page-form.php:803
+#: page/page-home.php:313
+#: page/page-home.php:374
+msgid "No"
+msgstr ""
+
+#: page/page-form.php:429
+msgid "Reset to Default"
+msgstr ""
+
+#: page/page-form.php:445
+#: page/page-form.php:446
+#: page/page-form.php:514
+#: page/page-form.php:554
+msgid "Add Captcha"
+msgstr ""
+
+#: page/page-form.php:446
+msgid "We are using Google reCaptcha for this form. To use Google reCaptcha on this form, you should input site key and secret key."
+msgstr ""
+
+#: page/page-form.php:470
+#: page/page-form.php:525
+msgid "Site Key"
+msgstr ""
+
+#: page/page-form.php:485
+#: page/page-form.php:535
+msgid "Secret Key"
+msgstr ""
+
+#: page/page-form.php:501
+msgid "Google Captcha"
+msgstr ""
+
+#: page/page-form.php:502
+msgid "Google Invisible Captcha"
+msgstr ""
+
+#: page/page-form.php:545
+msgid "Auto"
+msgstr ""
+
+#: page/page-form.php:546
+msgid "Dark Theme"
+msgstr ""
+
+#: page/page-form.php:547
+msgid "Light Theme"
+msgstr ""
+
+#: page/page-form.php:564
+#: page/page-form.php:565
+msgid "Add a Term acceptance checkbox"
+msgstr ""
+
+#: page/page-form.php:565
+msgid "If the terms and condition checkbox is added to the form, the field will be mandatory for subscription."
+msgstr ""
+
+#: page/page-form.php:577
+msgid "URL to terms and conditions"
+msgstr ""
+
+#: page/page-form.php:596
+msgid "Add Terms URL"
+msgstr ""
+
+#: page/page-form.php:603
+#: page/page-form.php:604
+msgid "Form Style"
+msgstr ""
+
+#: page/page-form.php:604
+msgid "Select the style you favorite. Your custom css will be applied to form only."
+msgstr ""
+
+#: page/page-form.php:607
+msgid "Current Theme"
+msgstr ""
+
+#: page/page-form.php:609
+msgid "Custom style"
+msgstr ""
+
+#: page/page-form.php:621
+msgid "Email Address"
+msgstr ""
+
+#: page/page-form.php:623
+msgid "Subscribe"
+msgstr ""
+
+#: page/page-form.php:625
+msgid "Select Brevo Attribute"
+msgstr ""
+
+#: page/page-form.php:627
+msgid "Brevo merge fields : Normal"
+msgstr ""
+
+#: page/page-form.php:629
+msgid "Brevo merge fields : Category"
+msgstr ""
+
+#: page/page-form.php:631
+msgid "Other"
+msgstr ""
+
+#: page/page-form.php:633
+msgid "Submit Button"
+msgstr ""
+
+#: page/page-form.php:639
+msgid "Preview"
+msgstr ""
+
+#: page/page-form.php:651
+#: page/page-form.php:829
+#: page/page-form.php:891
+msgid "Save"
+msgstr ""
+
+#: page/page-form.php:663
+msgid "Sign up process"
+msgstr ""
+
+#: page/page-form.php:670
+msgid "Confirmation emails will be sent through your own email server, but you have no guarantees on their deliverability. <br/> <a href=\"https://app-smtp.brevo.com/\" target=\"_blank\" rel=\"noopener\">Click here</a> to send your emails through Brevo in order to improve your deliverability and get statistics"
+msgstr ""
+
+#: page/page-form.php:672
+msgid "The template you selected does not include a link {{DOUBLEOPTIN}} to allow subscribers to confirm their subscription. <br/> Please edit the template to include a link with {{DOUBLEOPTIN}} as URL."
+msgstr ""
+
+#: page/page-form.php:674
+msgid "You cannot select a template with the tag {{DOUBLEOPTIN}}"
+msgstr ""
+
+#: page/page-form.php:681
+msgid "Select the list where you want to add your new subscribers"
+msgstr ""
+
+#: page/page-form.php:692
+msgid "You can use Marketing Automation to create specific workflow when a user is added to the list."
+msgstr ""
+
+#: page/page-form.php:698
+msgid "Send a confirmation email"
+msgstr ""
+
+#: page/page-form.php:698
+#: page/page-form.php:839
+msgid "Confirmation message"
+msgstr ""
+
+#: page/page-form.php:698
+msgid "You can choose to send a confirmation email. You will be able to set up the template that will be sent to your new suscribers"
+msgstr ""
+
+#: page/page-form.php:714
+msgid "Select \"Yes\" if you want your subscribers to receive a confirmation email"
+msgstr ""
+
+#: page/page-form.php:722
+msgid "Default"
+msgstr ""
+
+#: page/page-form.php:729
+#: page/page-form.php:763
+#: page/page-form.php:784
+msgid "Set up my templates"
+msgstr ""
+
+#: page/page-form.php:736
+msgid "Double Opt-In"
+msgstr ""
+
+#: page/page-form.php:736
+msgid "Your subscribers will receive an email inviting them to confirm their subscription. Be careful, your subscribers are not saved in your list before confirming their subscription."
+msgstr ""
+
+#: page/page-form.php:752
+msgid "Select \"Yes\" if you want your subscribers to confirm their email address"
+msgstr ""
+
+#: page/page-form.php:768
+msgid "Redirect to this URL after clicking in the email"
+msgstr ""
+
+#: page/page-form.php:775
+msgid "Select final confirmation email template"
+msgstr ""
+
+#: page/page-form.php:775
+msgid "Final confirmation"
+msgstr ""
+
+#: page/page-form.php:775
+msgid ""
+"This is the final confirmation email your contacts will receive once they click on the double opt-in confirmation link. You can select one of the default templates we have created for you, e.g. 'Default template - Final confirmation'.\n"
+"For your information, you cannot select a template with the tag {{DOUBLEOPTIN}}."
+msgstr ""
+
+#: page/page-form.php:792
+msgid "Redirect to this URL after subscription"
+msgstr ""
+
+#: page/page-form.php:809
+msgid "Select \"Yes\" if you want to redirect your subscribers to a specific page after they fullfill the form"
+msgstr ""
+
+#: page/page-form.php:844
+#: page/page-form.php:848
+msgid "Success message"
+msgstr ""
+
+#: page/page-form.php:848
+msgid "Set up the success message that will appear when one of your visitors surccessfully signs up"
+msgstr ""
+
+#: page/page-form.php:852
+msgid "General error message"
+msgstr ""
+
+#: page/page-form.php:857
+msgid "General message error"
+msgstr ""
+
+#: page/page-form.php:857
+msgid "Set up the message that will appear when an error occurs during the subscritpion process"
+msgstr ""
+
+#: page/page-form.php:862
+msgid "Existing subscribers"
+msgstr ""
+
+#: page/page-form.php:867
+msgid "Existing Suscribers"
+msgstr ""
+
+#: page/page-form.php:867
+msgid "Set up the message that will appear when a suscriber is already in your database"
+msgstr ""
+
+#: page/page-form.php:872
+#: page/page-form.php:877
+msgid "Invalid email address"
+msgstr ""
+
+#: page/page-form.php:877
+msgid "Set up the message that will appear when the email address used to sign up is not valid"
+msgstr ""
+
+#: page/page-form.php:881
+#: page/page-form.php:886
+msgid "Required Field"
+msgstr ""
+
+#: page/page-form.php:886
+msgid "Set up the message that will appear when the required field is empty"
+msgstr ""
+
+#: page/page-form.php:919
+msgid "Sorry, you selected invalid form ID. Please check again if the ID is right"
+msgstr ""
+
+#: page/page-home.php:44
+msgid "Home"
+msgstr ""
+
+#: page/page-home.php:131
+#: page/page-home.php:149
+msgid "Step"
+msgstr ""
+
+#: page/page-home.php:131
+msgid "Create a Brevo Account"
+msgstr ""
+
+#: page/page-home.php:135
+msgid "By creating a free Brevo account, you will be able to send confirmation emails and:"
+msgstr ""
+
+#: page/page-home.php:137
+msgid "Collect your contacts and upload your lists"
+msgstr ""
+
+#: page/page-home.php:138
+msgid "Use Brevo SMTP to send your transactional emails"
+msgstr ""
+
+#: page/page-home.php:139
+msgid "Email marketing builders"
+msgstr ""
+
+#: page/page-home.php:140
+msgid "Create and schedule your email marketing campaigns"
+msgstr ""
+
+#: page/page-home.php:141
+msgid "Try all of"
+msgstr ""
+
+#: page/page-home.php:141
+msgid "Brevo's features"
+msgstr ""
+
+#: page/page-home.php:143
+msgid "Create an account"
+msgstr ""
+
+#: page/page-home.php:149
+msgid "Activate your account with your API key v3"
+msgstr ""
+
+#: page/page-home.php:153
+msgid "You successfully activate your account."
+msgstr ""
+
+#: page/page-home.php:154
+msgid "Please input a valid API v3 key"
+msgstr ""
+
+#: page/page-home.php:155
+msgid "Please install curl on site to use brevo plugin."
+msgstr ""
+
+#: page/page-home.php:156
+msgid "Curl error."
+msgstr ""
+
+#: page/page-home.php:157
+msgid "Please input a valid API v3 key."
+msgstr ""
+
+#: page/page-home.php:159
+msgid "Once you have created a Brevo account, activate this plugin to send all of your transactional emails via Brevo SMTP. Brevo optimizes email delivery to ensure emails reach the inbox."
+msgstr ""
+
+#: page/page-home.php:160
+msgid "To activate your plugin, enter your API v3 Access key."
+msgstr ""
+
+#: page/page-home.php:163
+msgid "Get your API key from your account"
+msgstr ""
+
+#: page/page-home.php:168
+msgid "Login"
+msgstr ""
+
+#. translators: %s: total users
+#: page/page-home.php:213
+msgid "You have %s existing users. Do you want to add them to Brevo?"
+msgstr ""
+
+#: page/page-home.php:216
+msgid "All your users have been added to a Brevo list."
+msgstr ""
+
+#: page/page-home.php:225
+msgid "My Account"
+msgstr ""
+
+#: page/page-home.php:229
+msgid "You are currently logged in as : "
+msgstr ""
+
+#: page/page-home.php:238
+msgid "credits"
+msgstr ""
+
+#: page/page-home.php:251
+msgid "subscribers"
+msgstr ""
+
+#: page/page-home.php:263
+msgid "Log out"
+msgstr ""
+
+#: page/page-home.php:267
+msgid "Contacts"
+msgstr ""
+
+#: page/page-home.php:272
+msgid "Access to the list of all my contacts"
+msgstr ""
+
+#: page/page-home.php:277
+#: page/page-home.php:281
+#: page/page-home.php:591
+msgid "Users Synchronisation"
+msgstr ""
+
+#: page/page-home.php:281
+msgid "Sync my users"
+msgstr ""
+
+#: page/page-home.php:290
+msgid "Transactional emails"
+msgstr ""
+
+#: page/page-home.php:296
+msgid "Unfortunately, your \"Transactional emails\" are not activated because your Brevo SMTP account is not active. Please send an email to contact@brevo.com in order to ask for SMTP account activation"
+msgstr ""
+
+#: page/page-home.php:300
+msgid "Mail Sent."
+msgstr ""
+
+#: page/page-home.php:301
+msgid "Please input valid email."
+msgstr ""
+
+#: page/page-home.php:303
+msgid "Activate email through Brevo"
+msgstr ""
+
+#: page/page-home.php:316
+msgid "Choose \"Yes\" if you want to use Brevo SMTP to send transactional emails"
+msgstr ""
+
+#: page/page-home.php:327
+msgid "Choose your sender"
+msgstr ""
+
+#: page/page-home.php:339
+msgid "Create a new sender"
+msgstr ""
+
+#: page/page-home.php:343
+msgid "Enter email to send a test"
+msgstr ""
+
+#: page/page-home.php:346
+msgid "Send email"
+msgstr ""
+
+#: page/page-home.php:349
+msgid "Select here the email address you want to send a test email to."
+msgstr ""
+
+#: page/page-home.php:358
+msgid "Automation"
+msgstr ""
+
+#: page/page-home.php:361
+msgid "Your Marketing Automation script is installed correctly."
+msgstr ""
+
+#: page/page-home.php:362
+msgid "Your Marketing Automation script has been uninstalled"
+msgstr ""
+
+#: page/page-home.php:363
+msgid "You have not enabled automation in Brevo. Please do so by choosing the Automation application here: "
+msgstr ""
+
+#: page/page-home.php:363
+msgid "Thanks"
+msgstr ""
+
+#: page/page-home.php:364
+msgid "Your Marketing Automation script will be uninstalled, you won't have access to any Marketing Automation data and workflows"
+msgstr ""
+
+#: page/page-home.php:366
+msgid "Activate Marketing Automation through Brevo"
+msgstr ""
+
+#: page/page-home.php:377
+msgid "Choose \"Yes\" if you want to use Brevo Automation to track your website activity"
+msgstr ""
+
+#: page/page-home.php:381
+msgid "%s Explore our resource %s to learn more about Brevo Automation"
+msgstr ""
+
+#: page/page-home.php:383
+#: page/page-home.php:427
+msgid "Activate"
+msgstr ""
+
+#: page/page-home.php:394
+#: page/page-push.php:37
+msgid "Web push"
+msgstr ""
+
+#. translators: %s: number of subscribers
+#: page/page-home.php:406
+msgid "Web push is currently active, you have %s subscriber."
+msgid_plural "Push is currently active, you have %s subscribers."
+msgstr[0] ""
+msgstr[1] ""
+
+#: page/page-home.php:410
+msgid "Web push dashboard"
+msgstr ""
+
+#. translators: %s: deactivate push notifications link
+#: page/page-home.php:416
+msgid "To stop getting new push subscribers and notifying existing ones, you can %s."
+msgstr ""
+
+#: page/page-home.php:417
+msgid "deactivate push notifications"
+msgstr ""
+
+#: page/page-home.php:424
+msgid "Activate Push Notifications"
+msgstr ""
+
+#: page/page-home.php:437
+msgid "Click \"Activate\" to start notifying your readers whenever a new post is published, let your users subscribe to their favorite topics."
+msgstr ""
+
+#: page/page-home.php:446
+msgid "SMS"
+msgstr ""
+
+#. translators: %s: number of subscribers
+#: page/page-home.php:457
+msgid "SMS statistics"
+msgstr ""
+
+#: page/page-home.php:461
+msgid "SMS dashboard"
+msgstr ""
+
+#: page/page-home.php:465
+msgid "Check your SMS campaign statistics, you can see more here:"
+msgstr ""
+
+#: page/page-home.php:466
+msgid "Learn about SMS statistics"
+msgstr ""
+
+#: page/page-home.php:484
+#: sendinblue.php:1633
+msgid "About Brevo"
+msgstr ""
+
+#: page/page-home.php:486
+msgid "Brevo is an online software that helps you build and grow relationships through marketing and transactional emails, marketing automation, and text messages."
+msgstr ""
+
+#: page/page-home.php:489
+msgid "Who we are"
+msgstr ""
+
+#: page/page-home.php:492
+msgid "Pricing"
+msgstr ""
+
+#: page/page-home.php:495
+msgid "Features"
+msgstr ""
+
+#: page/page-home.php:502
+msgid "Need Help?"
+msgstr ""
+
+#: page/page-home.php:504
+msgid "Do you have a question or need more information?"
+msgstr ""
+
+#: page/page-home.php:506
+msgid "Tutorials"
+msgstr ""
+
+#: page/page-home.php:507
+msgid "FAQ"
+msgstr ""
+
+#: page/page-home.php:513
+msgid "Recommend this plugin"
+msgstr ""
+
+#: page/page-home.php:515
+msgid "Let everyone know you like this plugin through a review!"
+msgstr ""
+
+#: page/page-home.php:517
+msgid "Recommend the Brevo plugin"
+msgstr ""
+
+#: page/page-home.php:548
+msgid "You are currently not logged in. Create an account or log in to benefit from all of Brevo's features an your WordPress site."
+msgstr ""
+
+#: page/page-home.php:551
+msgid "Collect and manage your contacts"
+msgstr ""
+
+#: page/page-home.php:552
+msgid "Send transactional emails via SMTP or API"
+msgstr ""
+
+#: page/page-home.php:553
+msgid "Real time statistics and email tracking"
+msgstr ""
+
+#: page/page-home.php:554
+msgid "Edit and send email marketing"
+msgstr ""
+
+#: page/page-home.php:558
+msgid "Have an account?"
+msgstr ""
+
+#: page/page-home.php:561
+msgid "Free Subscribe Now"
+msgstr ""
+
+#: page/page-home.php:599
+msgid "Roles to sync"
+msgstr ""
+
+#: page/page-home.php:609
+msgid "Sync Lists"
+msgstr ""
+
+#: page/page-home.php:612
+msgid "Choose the Brevo list in which you want to add your existing customers:"
+msgstr ""
+
+#: page/page-home.php:627
+msgid "First Name"
+msgstr ""
+
+#: page/page-home.php:628
+msgid "Last Name"
+msgstr ""
+
+#: page/page-home.php:629
+msgid "Website URL"
+msgstr ""
+
+#: page/page-home.php:630
+msgid "User Role"
+msgstr ""
+
+#: page/page-home.php:631
+msgid "Username"
+msgstr ""
+
+#: page/page-home.php:632
+msgid "Nickname"
+msgstr ""
+
+#: page/page-home.php:633
+msgid "User Registration Date"
+msgstr ""
+
+#: page/page-home.php:634
+msgid "Display Name"
+msgstr ""
+
+#: page/page-home.php:635
+msgid "Description about user"
+msgstr ""
+
+#: page/page-home.php:642
+msgid "Match Attributes"
+msgstr ""
+
+#: page/page-home.php:646
+msgid "WordPress Users Attributes"
+msgstr ""
+
+#: page/page-home.php:649
+msgid "Brevo Contact Attributes"
+msgstr ""
+
+#: page/page-home.php:685
+msgid "Apply"
+msgstr ""
+
+#: page/page-home.php:773
+msgid "[Brevo SMTP] test email"
+msgstr ""
+
+#: page/page-home.php:831
+msgid "Please select a user role."
+msgstr ""
+
+#: page/page-home.php:838
+msgid "The attribute %s is duplicated. You can select one at a time."
+msgstr ""
+
+#: page/page-home.php:889
+msgid "There is not any user in the roles."
+msgstr ""
+
+#: sendinblue.php:542
+msgid "Please fill out valid email address"
+msgstr ""
+
+#: sendinblue.php:543
+msgid "Please fill out required fields"
+msgstr ""
+
+#: sendinblue.php:544
+msgid "Please fill out valid date format"
+msgstr ""
+
+#: sendinblue.php:545
+msgid "Please fill out valid phone number"
+msgstr ""
+
+#: sendinblue.php:1567
+msgid "You cannot use Brevo SMTP now because wp_mail has been declared by another process or plugin. "
+msgstr ""
+
+#: sendinblue.php:1636
+msgid "Language of this form:"
+msgstr ""
+
+#: sendinblue.php:1670
+msgid "Translate this form"
+msgstr ""
+
+#: sendinblue.php:1725
+#: sendinblue.php:1728
+msgid "Copy content from origin form"
+msgstr ""
+
+#: sendinblue.php:1730
+msgid "You can copy contents from origin form. You need to translate the contents by this language."
+msgstr ""
+
+#: widget/widget_form.php:38
+msgid "Sendinblue Newsletter"
+msgstr ""
+
+#: widget/widget_form.php:50
+msgid "Widget Title"
+msgstr ""
+
+#: widget/widget_form.php:56
+msgid "Form to use"
+msgstr ""

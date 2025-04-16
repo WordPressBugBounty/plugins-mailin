@@ -1,0 +1,23 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Newsletter, SMTP, Email marketing and Subscribe forms by "
+"Brevo 3.1.85\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-25T10:16:02+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: post-editor\n"
+
+#: post-editor/index.js:272
+msgid "No utm parameter configured"
+msgstr "Pas de paramètre utm configuré"
+
+#: post-editor/index.js:284
+msgid "Configure"
+msgstr "Configurer"
