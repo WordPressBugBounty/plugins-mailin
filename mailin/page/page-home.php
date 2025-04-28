@@ -414,14 +414,14 @@ if ( ! class_exists( 'SIB_Page_Home' ) ) {
 											<?php printf(
 													// translators: %s: deactivate push notifications link
 												__( 'To stop getting new push subscribers and notifying existing ones, you can %s.', 'mailin' ),
-												'<a href="#" style="font-size:12px;" id="deactivate_push_btn">' . __( 'deactivate push notifications', 'mailin' ) . '</a>'
+												'<a href="#" style="font-size:12px;" id="deactivate_push_btn">' . __( 'deactivate web push', 'mailin' ) . '</a>'
 											); ?>
 										</small>
 									</div>
 								</div>
 							<?php else : ?>
 								<div class="row">
-									<p class="col-md-4 text-left"><?php esc_attr_e( 'Activate Push Notifications', 'mailin' ); ?></p>
+									<p class="col-md-4 text-left"><?php esc_attr_e( 'Activate web push', 'mailin' ); ?></p>
 									<div class="col-md-3">
 										<button type="button" id="activate_push_btn" class="col-md-12 btn btn-success"><span
 													class="sib-spin"><i class="fa fa-circle-o-notch fa-spin fa-lg"></i>&nbsp;&nbsp;</span><?php esc_attr_e( 'Activate', 'mailin' ); ?>

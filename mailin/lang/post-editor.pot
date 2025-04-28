@@ -7,15 +7,15 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-04-04T11:03:52+00:00\n"
+"POT-Creation-Date: 2025-04-18T11:10:47+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: post-editor\n"
 
-#: post-editor/index.js:272
+#: post-editor/index.js:280
 msgid "No utm parameter configured"
 msgstr ""
 
-#: post-editor/index.js:284
+#: post-editor/index.js:292
 msgid "Configure"
 msgstr ""

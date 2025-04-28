@@ -221,12 +221,13 @@ if ( ! class_exists( 'SIB_Push_API' ) ) {
 			}
 		}
 
-		private static function get_push_configuration() {
+		public static function get_push_configuration() {
 			$settings = SIB_Push_Settings::getSettings();
 			$app = SIB_Push_Utils::get_push_application();
 			return (object)array(
 				'applicationId' => $app && $app->getId() ? $app->getId() : null,
 				'websiteUrl' => get_site_url(),
+				'websiteName' => get_bloginfo('name'),
 				'pushOptions' => SIB_Push_Utils::wonderpush_init_options(),
 				'imgUrl' => plugins_url('img', dirname(__FILE__)),
 				'bypassWordPressHttpClient' => $settings->getBypassWordPressHttpClient(),

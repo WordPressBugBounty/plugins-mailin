@@ -3,7 +3,7 @@
  * Plugin Name: Newsletter, SMTP, Email marketing and Subscribe forms by Brevo
  * Plugin URI: https://www.brevo.com/?r=wporg
  * Description: Manage your contact lists, subscription forms and all email and marketing-related topics from your wp panel, within one single plugin
- * Version: 3.1.98
+ * Version: 3.2.0
  * Author: Brevo
  * Author URI: https://www.brevo.com/?r=wporg
  * License: GPLv2 or later
@@ -301,6 +301,7 @@ if ( ! class_exists( 'SIB_Manager' ) ) {
 			add_action( 'wp_enqueue_scripts', array( &$this, 'wp_head_ac' ), 999 );
 			add_action( 'wp_dashboard_setup', array( 'SIB_Push_Admin', 'add_dashboard_widget' ), 9999 );
 			add_action( 'admin_init', array( 'SIB_Push_Admin', 'add_post_options' ), 9999 );
+			add_action( 'admin_bar_menu', array( 'SIB_Push_Admin', 'add_admin_bar_menu_item' ), 100);
 
 			// create custom url for form preview.
 			add_filter( 'query_vars', array( &$this, 'sib_query_vars' ) );
@@ -421,7 +422,6 @@ if ( ! class_exists( 'SIB_Manager' ) ) {
 		 * @return bool
 		 */
 		static function is_staging() {
-			// Note: don't forget to manually change mailin/sw.js to put the staging sdk loader
 			return false;
 		}
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-04T11:03:48+00:00\n"
-"PO-Revision-Date: 2025-04-04 13:05+0200\n"
+"POT-Creation-Date: 2025-04-17T10:25:35+00:00\n"
+"PO-Revision-Date: 2025-04-17 12:30+0200\n"
 "Last-Translator: Stéphane Jaïs <stephane.jais@brevo.com>\n"
 "Language-Team: French <traduc@traduc.org>\n"
 "Language: fr\n"
@@ -2475,8 +2475,8 @@ msgid "Let your users subscribe to their favorite topics."
 msgstr "Permettre aux utilisateurs de s’abonner à leurs sujets préférés."
 
 #: push/pages/Activation.js:21
-msgid "Activate push notifications"
-msgstr "Activer les notifications push"
+msgid "Activate web push"
+msgstr "Activer web push"
 
 #: push/pages/Activation.js:21
 msgid "Please wait, activation might take up to a minute."
@@ -3412,6 +3412,9 @@ msgstr "URL invalide"
 #: push/validator.js:83
 msgid "Forbidden URL"
 msgstr "URL interdite"
+
+#~ msgid "Activate push notifications"
+#~ msgstr "Activer les notifications push"
 
 #~ msgid "Based on purchase activity"
 #~ msgstr "Selon leur activité d’achat"

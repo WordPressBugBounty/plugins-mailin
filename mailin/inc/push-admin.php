@@ -16,6 +16,23 @@ if ( ! class_exists( 'SIB_Push_Admin' ) ) {
 		const DEDUPLICATION_SECONDS = 60;
 		const API_RATE_LIMIT_SECONDS = 3;
 
+		public static function add_admin_bar_menu_item($wp_admin_bar) {
+			if (!current_user_can('manage_options')) {
+				return; // Only for admins
+			}
+			if (SIB_Push_Utils::is_push_active()) {
+				return;
+			}
+
+			$wp_admin_bar->add_node(array(
+				'id'    => 'brevo_push_admin_bar_button',
+				'title' => '<span class="ab-icon" style="position: relative; top: 3px; opacity: 0.7;">&#xF16D;</span><span class="ab-label">'.__('Web push', 'mailin').'</span>',
+				'href'  => add_query_arg( 'page', SIB_Page_Push::PAGE_ID, admin_url( 'admin.php' ) ),
+				'meta'  => array(
+					'title' => __('Go to web push dashboard', 'mailin'),
+				)
+			));
+		}
 		public static function add_dashboard_widget() {
 			$settings = SIB_Push_Settings::getSettings();
 			if (!$settings->getShowPush()) return;
@@ -43,7 +60,7 @@ if ( ! class_exists( 'SIB_Push_Admin' ) ) {
 <!--				<li style="list-style: inside disc">--><?php //echo __( 'Set up automated e-commerce notifications for your WooCommerce business.', 'mailin' ) ?>
 			</ul>
 			<p><a class="button button-primary"
-				  href="<?php echo admin_url( 'admin.php?page=sib_page_push' ) ?>"><?php echo __( 'Activate web push notifications' ) ?></a>
+				  href="<?php echo admin_url( 'admin.php?page=sib_page_push' ) ?>"><?php echo __( 'Activate web push' ) ?></a>
 			</p>
 			<?php
 		}
@@ -69,7 +86,7 @@ if ( ! class_exists( 'SIB_Push_Admin' ) ) {
 
 			// Add meta box for the "post" post type (default)
 			add_meta_box(self::META_BOX_ID,
-				'Brevo Push Notifications',
+				'Brevo web push',
 				array( __CLASS__, 'add_post_html' ),
 				'post',
 				'normal',
@@ -80,7 +97,7 @@ if ( ! class_exists( 'SIB_Push_Admin' ) ) {
 			foreach ( $post_types  as $post_type ) {
 				add_meta_box(
 					self::META_BOX_ID,
-					'Brevo Push Notifications',
+					'Brevo web push',
 					array( __CLASS__, 'add_post_html' ),
 					$post_type,
 					'side',
@@ -184,26 +201,33 @@ if ( ! class_exists( 'SIB_Push_Admin' ) ) {
 				$sib_push_audience = 'brevo_lists';
 			}
 			?>
+			<div id="sib_notification_preview"></div>
+			<div id="sib_push_config" style="display:none"><?php
+				echo json_encode(SIB_Push_API::get_push_configuration());
+				?></div>
 			<?php if (!SIB_Push_Utils::is_push_active()): ?>
 			<div id="sib_push_activation">
 				<p>
-					<button class="button button-primary" id="sib_push_activation_button">
-						<?php _e('Activate push notifications', 'mailin') ?>
-					</button>
-					<span class="spinner" style="float: none; margin: 0;"></span>
-					<span style="display: none;" class="sib_push_activating_message"><?php _e('Please wait, activation might take up to a minute.', 'mailin') ?></span>
+					<?php _e('Notify your readers:', 'mailin');?>
 				</p>
 				<p>
-					<?php _e('Grow your audience with push notifications:', 'mailin') ?>
+					<label>
+						<input type="checkbox" id="sib_push_activation_button" value="true" />
+						<strong>
+							<?php if ($post->post_status == "publish") {
+								/* translators: %s: Type of post. Usually is the string "post" */
+								printf(__("Send web push on %s update", 'mailin'), $post_type);
+							} else {
+								/* translators: %s: Type of post. Usually is the string "post" */
+								printf(__("Send web push on %s publish", 'mailin'), $post_type);
+							}
+							?>
+							<span class="new-sticker"><?php _e('New', 'mailin') ?></span>
+						</strong>
+					</label>
+					<span class="spinner" style="float: none; margin: 0;"></span>
+					<span style="display: none;" class="sib_push_activating_message"><?php _e('Please wait a few seconds...', 'mailin') ?></span>
 				</p>
-				<ul>
-					<li style="list-style-type: disc; list-style-position: inside;"><?php _e('Notify your readers whenever a new post is published.', 'mailin') ?></li>
-					<li style="list-style-type: disc; list-style-position: inside;"><?php _e('Let your users subscribe to their favorite topics.', 'mailin') ?></li>
-					<?php if (!!SIB_Push_Utils::get_woocommerce()) : ?>
-					<li style="list-style-type: disc; list-style-position: inside;"><?php _e('Set up automated e-commerce notifications for your WooCommerce business.', 'mailin') ?></li>
-					<?php endif; ?>
-				</ul>
-
 			</div>
 			<?php endif; ?>
 			<div id="sib_push_editor">
@@ -218,10 +242,10 @@ if ( ! class_exists( 'SIB_Push_Admin' ) ) {
 					<strong>
 						<?php if ($post->post_status == "publish") {
 							/* translators: %s: Type of post. Usually is the string "post" */
-							printf(__("Send notification on %s update", 'mailin'), $post_type);
+							printf(__("Send web push on %s update", 'mailin'), $post_type);
 						} else {
 							/* translators: %s: Type of post. Usually is the string "post" */
-							printf(__("Send notification on %s publish", 'mailin'), $post_type);
+							printf(__("Send web push on %s publish", 'mailin'), $post_type);
 						}
 						?>
 					</strong>
@@ -346,7 +370,7 @@ if ( ! class_exists( 'SIB_Push_Admin' ) ) {
 					<?php endforeach; ?>
 				</select>
 				<h3 style="margin-bottom: 3px;"><?php echo __("Google campaign parameters", 'mailin') ?></h3>
-				<small><?php echo __("Campaign params help you see push notification traffic in Google Analytics.", "mailin") ?> <a target="_blank" href="https://support.google.com/analytics/answer/1033863#parameters"><?php echo __("Learn more", "mailin") ?></a>.</small>
+				<small><?php echo __("Campaign params help you see web push traffic in Google Analytics.", "mailin") ?> <a target="_blank" href="https://support.google.com/analytics/answer/1033863#parameters"><?php echo __("Learn more", "mailin") ?></a>.</small>
 				<div class="sib_push_utm_parameters">
 					<?php foreach (SIB_Push_Utils::utm_parameters() as $utm_parameter): ?>
 						<?php $id = 'sib_push_'. $utm_parameter; ?>

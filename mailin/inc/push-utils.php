@@ -50,7 +50,7 @@ if ( ! class_exists( 'SIB_Push_Utils' ) ) {
 		/** @noinspection ForgottenDebugOutputInspection */
 		static public function log_debug(/* arguments */) {
 			if (defined('WP_DEBUG') && WP_DEBUG) {
-				error_log(self::formatv(array_merge(['[DEBUG]'], func_get_args())));
+				// error_log(self::formatv(array_merge(['[DEBUG]'], func_get_args())));
 			}
 		}
 
