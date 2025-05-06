@@ -43,7 +43,7 @@ if ( ! class_exists( 'SIB_Push_API' ) ) {
 				if ( $code !== 429 ) {
 					SIB_Push_Utils::log_error( 'Error creating application', $e );
 				} else {
-					SIB_Push_Utils::log_debug( 'Refusing to create application', $e );
+//					SIB_Push_Utils::log_debug( 'Refusing to create application', $e );
 				}
 			} catch ( SIB_Push_MissingCredentialsException $e) {
 				// Ignore
@@ -177,7 +177,7 @@ if ( ! class_exists( 'SIB_Push_API' ) ) {
 //				$cartReminderCampaign = SIB_Push_WooCommerce::ensure_cart_reminder_campaign_exists();
 				if ($cartReminderCampaign && ($reqMethod === 'PATCH' || $reqMethod === 'DELETE') && str_starts_with($reqUrl, 'wonderpush/v1/campaigns/'.$cartReminderCampaign->getId())) {
 					try {
-						SIB_Push_Utils::log_debug('Clearing cart reminder cache');
+//						SIB_Push_Utils::log_debug('Clearing cart reminder cache');
 						SIB_Push_WooCommerce::clear_cart_reminder_campaign_cache();
 					} catch ( Exception $e ) {
 						SIB_Push_Utils::log_error('Could not clear cart reminder cache', $e);
@@ -189,7 +189,7 @@ if ( ! class_exists( 'SIB_Push_API' ) ) {
 					$app = SIB_Push_Utils::get_push_application();
 					if ($app && $reqUrl === 'wonderpush/v1/applications/' . $app->getId()) {
 						try {
-							SIB_Push_Utils::log_debug('Clearing application cache');
+//							SIB_Push_Utils::log_debug('Clearing application cache');
 							SIB_Push_Utils::clear_push_application_cache();
 						} catch ( Exception $e ) {
 							SIB_Push_Utils::log_error('Could not clear application cache', $e);
@@ -257,6 +257,7 @@ if ( ! class_exists( 'SIB_Push_API' ) ) {
 				'ampButtonWidth' => (int)$settings->getAmpButtonWidth(),
 				'ampButtonHeight' => (int)$settings->getAmpButtonHeight(),
 				'additionalInitOptionsJson' => $settings->getAdditionalInitOptionsJson(),
+				'hideAdminBarShortcut' => $settings->getHideAdminBarShortcut(),
 			);
 		}
 
@@ -284,6 +285,7 @@ if ( ! class_exists( 'SIB_Push_API' ) ) {
 						 'disableAmpBottomSubscribeButton',
 						 'disableAmpTopSubscribeButton',
 						 'disableThankYouEvent',
+						 'hideAdminBarShortcut',
 					 ) as $key) {
 				if (array_key_exists($key, $_POST)) {
 					$settings->{"set" . ucfirst($key)}($_POST[$key] === 'true');

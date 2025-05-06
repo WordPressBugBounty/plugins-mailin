@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-04-18T11:10:43+00:00\n"
+"POT-Creation-Date: 2025-05-05T06:36:52+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: push\n"
@@ -2312,29 +2312,38 @@ msgid "Settings"
 msgstr ""
 
 #: push/MainLayout.js:124
-#: push/pages/Activation.js:21
+#: push/pages/Activation.js:28
 #: push/stats/StatsComponent/platform-selector.js:39
 msgid "Web push"
 msgstr ""
 
-#: push/pages/Activation.js:21
+#: push/pages/Activation.js:28
 msgid "Grow your audience with push notifications"
 msgstr ""
 
-#: push/pages/Activation.js:21
+#: push/pages/Activation.js:28
 msgid "Notify your readers whenever a new post is published."
 msgstr ""
 
-#: push/pages/Activation.js:21
+#: push/pages/Activation.js:28
 msgid "Let your users subscribe to their favorite topics."
 msgstr ""
 
-#: push/pages/Activation.js:21
+#: push/pages/Activation.js:28
 msgid "Activate web push"
 msgstr ""
 
-#: push/pages/Activation.js:21
+#: push/pages/Activation.js:28
 msgid "Please wait, activation might take up to a minute."
+msgstr ""
+
+#: push/pages/Activation.js:28
+#: push/pages/settings/AdvancedSettings.js:31
+msgid "Show admin bar shortcut"
+msgstr ""
+
+#: push/pages/Activation.js:28
+msgid "Hide admin bar shortcut"
 msgstr ""
 
 #: push/pages/CampaignDetail.js:142
@@ -2575,6 +2584,10 @@ msgstr ""
 
 #: push/pages/settings/AdvancedSettings.js:31
 msgid "When checked, Brevo will contact its own API using the HTTP client built in WordPress. When checked, hooks like http_api_curl will allow other plugins to customize HTTP calls. Uncheck if you want Brevo to use an HTTP client that cannot be affected by other plugins."
+msgstr ""
+
+#: push/pages/settings/AdvancedSettings.js:31
+msgid "When checked, Brevo will show a shortcut to this Web Push dashboard in the admin bar of your WordPress."
 msgstr ""
 
 #: push/pages/settings/AmpSettings.js:31

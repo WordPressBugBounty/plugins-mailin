@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-17T10:25:35+00:00\n"
-"PO-Revision-Date: 2025-04-17 12:30+0200\n"
+"POT-Creation-Date: 2025-05-05T06:36:52+00:00\n"
+"PO-Revision-Date: 2025-05-05 08:38+0200\n"
 "Last-Translator: Stéphane Jaïs <stephane.jais@brevo.com>\n"
 "Language-Team: French <traduc@traduc.org>\n"
 "Language: fr\n"
@@ -2457,30 +2457,38 @@ msgstr "Campagnes"
 msgid "Settings"
 msgstr "Réglages"
 
-#: push/MainLayout.js:124 push/pages/Activation.js:21
+#: push/MainLayout.js:124 push/pages/Activation.js:28
 #: push/stats/StatsComponent/platform-selector.js:39
 msgid "Web push"
 msgstr "Push web"
 
-#: push/pages/Activation.js:21
+#: push/pages/Activation.js:28
 msgid "Grow your audience with push notifications"
 msgstr "Elargissez votre audience avec les notifications push"
 
-#: push/pages/Activation.js:21
+#: push/pages/Activation.js:28
 msgid "Notify your readers whenever a new post is published."
 msgstr "Notifiez vos lecteurs dès qu’un nouveau billet est publié."
 
-#: push/pages/Activation.js:21
+#: push/pages/Activation.js:28
 msgid "Let your users subscribe to their favorite topics."
 msgstr "Permettre aux utilisateurs de s’abonner à leurs sujets préférés."
 
-#: push/pages/Activation.js:21
+#: push/pages/Activation.js:28
 msgid "Activate web push"
 msgstr "Activer web push"
 
-#: push/pages/Activation.js:21
+#: push/pages/Activation.js:28
 msgid "Please wait, activation might take up to a minute."
 msgstr "Activation en cours, elle peut prendre jusqu’à une minute."
+
+#: push/pages/Activation.js:28 push/pages/settings/AdvancedSettings.js:31
+msgid "Show admin bar shortcut"
+msgstr "Montrer le raccourci dans la barre d’admin"
+
+#: push/pages/Activation.js:28
+msgid "Hide admin bar shortcut"
+msgstr "Cacher le raccourci barre d’admin"
 
 #: push/pages/CampaignDetail.js:142
 msgid "Notified subscribers"
@@ -2800,6 +2808,14 @@ msgstr ""
 "de WordPress. Si coché, les hooks comme http_api_curl permettent à d’autres "
 "plugins de personnaliser les appels HTTP. Décocher si vous souhaitez que "
 "Brevo utilise un client HTTP qui ne peut être affecté par d’autres plugins."
+
+#: push/pages/settings/AdvancedSettings.js:31
+msgid ""
+"When checked, Brevo will show a shortcut to this Web Push dashboard in the "
+"admin bar of your WordPress."
+msgstr ""
+"Si coché, Brevo affichera un raccourci vers ce tableau de bord Web Push dans "
+"la barre d’admin de votre WordPress."
 
 #: push/pages/settings/AmpSettings.js:31
 msgid "AMP settings"

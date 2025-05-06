@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: Newsletter, SMTP, Email marketing and Subscribe forms by Brevo
+ * Plugin Name: Brevo - Email, SMS, Web Push, Chat, and more.
  * Plugin URI: https://www.brevo.com/?r=wporg
  * Description: Manage your contact lists, subscription forms and all email and marketing-related topics from your wp panel, within one single plugin
- * Version: 3.2.0
+ * Version: 3.2.1
  * Author: Brevo
  * Author URI: https://www.brevo.com/?r=wporg
  * License: GPLv2 or later

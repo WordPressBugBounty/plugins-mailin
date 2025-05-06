@@ -50,7 +50,7 @@ if ( ! class_exists( 'SIB_Push_Utils' ) ) {
 		/** @noinspection ForgottenDebugOutputInspection */
 		static public function log_debug(/* arguments */) {
 			if (defined('WP_DEBUG') && WP_DEBUG) {
-				// error_log(self::formatv(array_merge(['[DEBUG]'], func_get_args())));
+				 error_log(self::formatv(array_merge(['[DEBUG]'], func_get_args())));
 			}
 		}
 
@@ -321,7 +321,7 @@ if ( ! class_exists( 'SIB_Push_Utils' ) ) {
 			$cached = get_transient($cache_key);
 			if ($cached) {
 				$cached = $cached === 'true';
-				self::log_debug('Using cached value of /brevoWordPressPlugin/showPush', $cached);
+//				self::log_debug('Using cached value of /brevoWordPressPlugin/showPush', $cached);
 				return $cached;
 			}
 			try {
@@ -563,15 +563,15 @@ if ( ! class_exists( 'SIB_Push_Utils' ) ) {
 				$ts = isset($cached['ts']) ? $cached['ts'] : 0;
 				if ($maxAge === null || $maxAge > ($now - $ts)) {
 					if ($app instanceof \WonderPush\Obj\Application) {
-						self::log_debug('Getting application from cache', $app->getId(), 'key', $cache_key, 'maxAge', $maxAge, 'ts', $ts, 'now', $now);
+//						self::log_debug('Getting application from cache', $app->getId(), 'key', $cache_key, 'maxAge', $maxAge, 'ts', $ts, 'now', $now);
 						return $app;
 					}
-					self::log_debug('Getting application from cache (null)', $app, 'key', $cache_key, 'maxAge', $maxAge, 'ts', $ts, 'now', $now);
+//					self::log_debug('Getting application from cache (null)', $app, 'key', $cache_key, 'maxAge', $maxAge, 'ts', $ts, 'now', $now);
 					return null;
 				}
 			}
 
-			self::log_debug('Getting application from network', $cache_key, 'forceFetch', $forceFetch);
+//			self::log_debug('Getting application from network', $cache_key, 'forceFetch', $forceFetch);
 			// Check access token with the API
 			$wp = self::management_api_client($credentials);
 			try {

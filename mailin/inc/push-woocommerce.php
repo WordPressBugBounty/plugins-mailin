@@ -416,19 +416,19 @@ if ( ! class_exists('SIB_Push_WooCommerce')) {
 				if ($maxAge === null || $maxAge > ($now - $ts)) {
 					if ($campaign instanceof \WonderPush\Obj\Campaign) {
 						if ($campaign->getId() === $settings->getCartReminderCampaignId()) {
-							SIB_Push_Utils::log_debug('Getting cart reminder campaign from cache', $campaign->getId(), 'key', $cache_key, 'maxAge', $maxAge, 'ts', $ts, 'now', $now);
+//							SIB_Push_Utils::log_debug('Getting cart reminder campaign from cache', $campaign->getId(), 'key', $cache_key, 'maxAge', $maxAge, 'ts', $ts, 'now', $now);
 							return $campaign;
 						}
 						// Continue to network
 					} else {
 						// It's not a campaign object
-						SIB_Push_Utils::log_debug('Getting cart reminder campaign from cache (null)', $campaign, 'key', $cache_key, 'maxAge', $maxAge, 'ts', $ts, 'now', $now);
+//						SIB_Push_Utils::log_debug('Getting cart reminder campaign from cache (null)', $campaign, 'key', $cache_key, 'maxAge', $maxAge, 'ts', $ts, 'now', $now);
 						return null;
 					}
 				}
 			}
 
-			SIB_Push_Utils::log_debug('Getting cart reminder campaign from network', $cache_key, 'forceFetch', $forceFetch);
+//			SIB_Push_Utils::log_debug('Getting cart reminder campaign from network', $cache_key, 'forceFetch', $forceFetch);
 			// Check access token with the API
 			$wp = SIB_Push_Utils::management_api_client($credentials);
 			try {

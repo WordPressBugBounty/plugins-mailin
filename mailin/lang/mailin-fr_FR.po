@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Sendinblue plugin\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/mailin\n"
-"POT-Creation-Date: 2025-04-18T11:10:49+00:00\n"
+"POT-Creation-Date: 2025-05-05T06:30:37+00:00\n"
 "PO-Revision-Date: 2025-04-18 13:11+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -44,148 +44,148 @@ msgstr ""
 msgid "Brevo"
 msgstr "Brevo"
 
-#: inc/push-admin.php:29 page/page-home.php:394 page/page-push.php:37
+#: inc/push-admin.php:33 page/page-home.php:394 page/page-push.php:37
 msgid "Web push"
 msgstr "Push web"
 
-#: inc/push-admin.php:32
+#: inc/push-admin.php:36
 msgid "Go to web push dashboard"
 msgstr "Tableau de bord web push"
 
-#: inc/push-admin.php:42
+#: inc/push-admin.php:46
 msgid "Web Push Notifications"
 msgstr "Notifications Push Web"
 
-#: inc/push-admin.php:54
+#: inc/push-admin.php:58
 msgid "Grow your audience with push notifications"
 msgstr "Elargissez votre audience avec les notifications push"
 
-#: inc/push-admin.php:57
+#: inc/push-admin.php:61
 msgid "Notify your readers whenever a new post is published."
 msgstr "Informez vos lecteurs de la publication d'un nouvel article."
 
-#: inc/push-admin.php:58
+#: inc/push-admin.php:62
 msgid "Let your users subscribe to their favorite topics."
 msgstr "Permettez à vos utilisateurs de s'abonner à leurs sujets favoris."
 
-#: inc/push-admin.php:211
+#: inc/push-admin.php:215
 msgid "Notify your readers:"
 msgstr "Notifiez vos lecteurs :"
 
 #. translators: %s: Type of post. Usually is the string "post"
-#: inc/push-admin.php:219 inc/push-admin.php:245
+#: inc/push-admin.php:223 inc/push-admin.php:249
 msgid "Send web push on %s update"
 msgstr "Envoyer un web push quand le %s est mis à jour"
 
 #. translators: %s: Type of post. Usually is the string "post"
-#: inc/push-admin.php:222 inc/push-admin.php:248
+#: inc/push-admin.php:226 inc/push-admin.php:252
 msgid "Send web push on %s publish"
 msgstr "Envoyer un web push quand un %s est publié"
 
-#: inc/push-admin.php:225
+#: inc/push-admin.php:229
 msgid "New"
 msgstr "New"
 
-#: inc/push-admin.php:229
+#: inc/push-admin.php:233
 msgid "Please wait a few seconds..."
 msgstr "Veuillez patienter quelques secondes…"
 
-#: inc/push-admin.php:254
+#: inc/push-admin.php:258
 msgid "Target audience"
 msgstr "Audience cible"
 
-#: inc/push-admin.php:262
+#: inc/push-admin.php:266
 msgid "Everybody"
 msgstr "Tout le monde"
 
-#: inc/push-admin.php:276
+#: inc/push-admin.php:280
 msgid "Users in segment(s)"
 msgstr "Les utilisateurs dans le(s) segment(s)"
 
-#: inc/push-admin.php:280
+#: inc/push-admin.php:284
 msgid "We'll notify users that match at least one of these segments:"
 msgstr ""
 "Nous notifierons tous les utilisateurs présents dans au moins un de ces "
 "segments :"
 
-#: inc/push-admin.php:284 inc/push-admin.php:311
+#: inc/push-admin.php:288 inc/push-admin.php:315
 msgid "Everyone"
 msgstr "Tout le monde"
 
-#: inc/push-admin.php:303
+#: inc/push-admin.php:307
 msgid "Users in list(s)"
 msgstr "Utilisateurs dans la ou les listes"
 
-#: inc/push-admin.php:307
+#: inc/push-admin.php:311
 msgid "We'll notify users that match at least one of these lists:"
 msgstr ""
 "Nous notifierons tous les utilisateurs présents dans au moins une de ces "
 "listes :"
 
-#: inc/push-admin.php:330
+#: inc/push-admin.php:334
 msgid "Users with tag(s)"
 msgstr "Utilisateurs avec le(s) tag(s)"
 
-#: inc/push-admin.php:334
+#: inc/push-admin.php:338
 msgid "We'll notify users that match at least one of these tags:"
 msgstr "Nous notifierons tous les utilisateurs qui on au moins un de ces tags:"
 
-#: inc/push-admin.php:352
+#: inc/push-admin.php:356
 msgid "Send later"
 msgstr "Envoyer plus tard"
 
-#: inc/push-admin.php:353
+#: inc/push-admin.php:357
 msgid "Delay the notification after this post gets published:"
 msgstr ""
 "Retarder l’envoi de la notification après que le billet ne soit publié :"
 
-#: inc/push-admin.php:356
+#: inc/push-admin.php:360
 msgid "No delay"
 msgstr "Immédiatement"
 
-#: inc/push-admin.php:361
+#: inc/push-admin.php:365
 msgid "minutes"
 msgstr "minutes"
 
-#: inc/push-admin.php:368
+#: inc/push-admin.php:372
 msgid "hour"
 msgid_plural "hours"
 msgstr[0] "heure"
 msgstr[1] "heures"
 
-#: inc/push-admin.php:372
+#: inc/push-admin.php:376
 msgid "Google campaign parameters"
 msgstr "Paramètres de campagne Google"
 
-#: inc/push-admin.php:373
+#: inc/push-admin.php:377
 msgid "Campaign params help you see web push traffic in Google Analytics."
 msgstr ""
 "Les paramètres de campagne vous aideront à voir le traffic lié aux web push "
 "dans Google Analytics."
 
-#: inc/push-admin.php:373
+#: inc/push-admin.php:377
 msgid "Learn more"
 msgstr "En savoir plus"
 
-#: inc/push-admin.php:796
+#: inc/push-admin.php:800
 msgid "Brevo push notification sent."
 msgstr "Notification push Brevo envoyée."
 
 #. translators: %d is the number of subscribers, %s is the date and time
-#: inc/push-admin.php:813
+#: inc/push-admin.php:817
 msgid "Brevo will send a notification to %d subscribers on %s."
 msgstr "Brevo enverra une notification à %d abonnés le %s."
 
 #. translators: %d is the number of subscribers
-#: inc/push-admin.php:816
+#: inc/push-admin.php:820
 msgid "Brevo notification sent to %d subscribers."
 msgstr "Notification Brevo envoyée à %d abonnés."
 
-#: inc/push-admin.php:819
+#: inc/push-admin.php:823
 msgid "Brevo notification sent but the target audience is empty."
 msgstr "Notification Brevo envoyée mais l'audience cible est vide."
 
-#: inc/push-admin.php:824
+#: inc/push-admin.php:828
 msgid "Brevo notification could not be sent."
 msgstr "La notification Brevo n'a pas pu être envoyée."
 
@@ -619,9 +619,9 @@ msgstr "Processus d'inscription"
 #: page/page-form.php:675
 msgid ""
 "Confirmation emails will be sent through your own email server, but you have "
-"no guarantees on their deliverability. <br/> <a href=\"https://app-smtp."
-"brevo.com/\" target=\"_blank\" rel=\"noopener\">Click here</a> to send your "
-"emails through Brevo in order to improve your deliverability and get "
+"no guarantees on their deliverability. <br/> <a href=\"https://app-"
+"smtp.brevo.com/\" target=\"_blank\" rel=\"noopener\">Click here</a> to send "
+"your emails through Brevo in order to improve your deliverability and get "
 "statistics"
 msgstr ""
 "Les emails de confirmations seront envoyé via votre propre serveur mail, "
@@ -1606,9 +1606,10 @@ msgstr "Formulaire à utiliser"
 
 #~ msgid ""
 #~ "Confirmation emails will be sent through your own email server, but you "
-#~ "have no guarantees on their deliverability. <a href=\"https://app-smtp."
-#~ "brevo.com\" target=\"_blank\">Click here</a> to send your emails through "
-#~ "Sendinblue in order to improve your deliverability and get statistics"
+#~ "have no guarantees on their deliverability. <a href=\"https://app-"
+#~ "smtp.brevo.com\" target=\"_blank\">Click here</a> to send your emails "
+#~ "through Sendinblue in order to improve your deliverability and get "
+#~ "statistics"
 #~ msgstr ""
 #~ "Les emails de confirmation seront envoyés par votre propre serveur email. "
 #~ "Vous n'avez donc aucune garantie sur la délivrabilité de vos emails. Pour "

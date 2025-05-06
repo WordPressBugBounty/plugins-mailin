@@ -17,10 +17,14 @@ if ( ! class_exists( 'SIB_Push_Admin' ) ) {
 		const API_RATE_LIMIT_SECONDS = 3;
 
 		public static function add_admin_bar_menu_item($wp_admin_bar) {
-			if (!current_user_can('manage_options')) {
+			if (!SIB_Push_Utils::is_admin_user()) {
 				return; // Only for admins
 			}
-			if (SIB_Push_Utils::is_push_active()) {
+			$settings = SIB_Push_Settings::getSettings();
+			if (!$settings->getShowPush()) {
+				return;
+			}
+			if ($settings->getHideAdminBarShortcut()) {
 				return;
 			}
 

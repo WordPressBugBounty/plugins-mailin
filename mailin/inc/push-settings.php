@@ -260,6 +260,14 @@ if ( ! class_exists( 'SIB_Push_Settings' ) ) {
 			return $this->set('showPush', $value ? true : false);
 		}
 
+		public function getHideAdminBarShortcut() {
+			return $this->get('hideAdminBarShortcut') ? true : false;
+		}
+
+		public function setHideAdminBarShortcut($value) {
+			return $this->set('hideAdminBarShortcut', $value ? true : false);
+		}
+
 		public function save() {
 			update_option(SIB_Manager::PUSH_SETTINGS_OPTION_NAME, $this->settings);
 		}
