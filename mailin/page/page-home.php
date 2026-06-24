@@ -708,6 +708,9 @@ if ( ! class_exists( 'SIB_Page_Home' ) ) {
 		/** Ajax module for validation (Home - welcome) */
 		public static function ajax_validation_process() {
 			check_ajax_referer( 'ajax_sib_admin_nonce', 'security' );
+			if ( ! current_user_can( 'view_custom_menu' ) ) {
+				wp_send_json_error( 'forbidden', 403 );
+			}
 			$access_key = isset( $_POST['access_key'] ) ? sanitize_text_field( wp_unslash( $_POST['access_key'] ) ) : '';
 			try {
                 update_option(SIB_Manager::API_KEY_V3_OPTION_NAME, $access_key);
@@ -737,6 +740,9 @@ if ( ! class_exists( 'SIB_Page_Home' ) ) {
 		/** Ajax module to change activate marketing automation option */
 		public static function ajax_validate_ma() {
 			check_ajax_referer( 'ajax_sib_admin_nonce', 'security' );
+			if ( ! current_user_can( 'view_custom_menu' ) ) {
+				wp_send_json_error( 'forbidden', 403 );
+			}
 			$general_settings = get_option( SIB_Manager::MAIN_OPTION_NAME, array() );
 			$home_settings = get_option( SIB_Manager::HOME_OPTION_NAME );
 			$ma_key = isset( $general_settings['ma_key'] ) ? sanitize_text_field($general_settings['ma_key']) : null;
@@ -755,6 +761,9 @@ if ( ! class_exists( 'SIB_Page_Home' ) ) {
 		/** Ajax module to change activate email option */
 		public static function ajax_activate_email_change() {
 			check_ajax_referer( 'ajax_sib_admin_nonce', 'security' );
+			if ( ! current_user_can( 'view_custom_menu' ) ) {
+				wp_send_json_error( 'forbidden', 403 );
+			}
 			$option_val = isset( $_POST['option_val'] ) ? sanitize_text_field( wp_unslash( $_POST['option_val'] ) ) : 'no';
 			$home_settings = get_option( SIB_Manager::HOME_OPTION_NAME );
 			$home_settings['activate_email'] = $option_val;
@@ -765,6 +774,9 @@ if ( ! class_exists( 'SIB_Page_Home' ) ) {
 		/** Ajax module to change sender detail */
 		public static function ajax_sender_change() {
 			check_ajax_referer( 'ajax_sib_admin_nonce', 'security' );
+			if ( ! current_user_can( 'view_custom_menu' ) ) {
+				wp_send_json_error( 'forbidden', 403 );
+			}
 			$sender_id = isset( $_POST['sender'] ) ? sanitize_text_field( wp_unslash( $_POST['sender'] ) ) : ''; // sender id.
 			$home_settings = get_option( SIB_Manager::HOME_OPTION_NAME );
 			$home_settings['sender'] = $sender_id;
@@ -782,6 +794,9 @@ if ( ! class_exists( 'SIB_Page_Home' ) ) {
 		/** Ajax module for send a test email */
 		public static function ajax_send_email() {
 			check_ajax_referer( 'ajax_sib_admin_nonce', 'security' );
+			if ( ! current_user_can( 'view_custom_menu' ) ) {
+				wp_send_json_error( 'forbidden', 403 );
+			}
 
 			$subject  = __( '[Brevo SMTP] test email', 'mailin' );
 			// Get sender info.
@@ -827,12 +842,18 @@ if ( ! class_exists( 'SIB_Page_Home' ) ) {
 		/** Ajax module for remove all transient value */
 		public static function ajax_remove_cache() {
 			check_ajax_referer( 'ajax_sib_admin_nonce', 'security' );
+			if ( ! current_user_can( 'view_custom_menu' ) ) {
+				wp_send_json_error( 'forbidden', 403 );
+			}
 			wp_send_json( 'success' );
 		}
 
 		/** Ajax module for sync wp users to contact list */
 		public static function ajax_sync_users() {
 			check_ajax_referer( 'ajax_sib_admin_nonce', 'security' );
+			if ( ! current_user_can( 'view_custom_menu' ) ) {
+				wp_send_json_error( 'forbidden', 403 );
+			}
 
 			// phpcs:ignore
 			$postData = isset( $_POST['data'] ) ? $_POST['data'] : array();

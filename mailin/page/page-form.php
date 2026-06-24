@@ -1107,6 +1107,9 @@ For your information, you cannot select a template with the tag {{DOUBLEOPTIN}}.
 		/** Ajax process when change template id */
 		public static function ajax_change_template() {
 			check_ajax_referer( 'ajax_sib_admin_nonce', 'security' );
+			if ( ! current_user_can( 'view_custom_menu' ) ) {
+				wp_send_json_error( 'forbidden', 403 );
+			}
 			$template_id = isset( $_POST['template_id'] ) ? sanitize_text_field( $_POST['template_id'] ) : '';
 			$mailin = new SendinblueApiClient( );
 			$data = array(
@@ -1131,6 +1134,9 @@ For your information, you cannot select a template with the tag {{DOUBLEOPTIN}}.
 		 */
 		public static function ajax_get_lists() {
 			check_ajax_referer( 'ajax_sib_admin_nonce', 'security' );
+			if ( ! current_user_can( 'view_custom_menu' ) ) {
+				wp_send_json_error( 'forbidden', 403 );
+			}
 			$lists = SIB_API_Manager::get_lists();
 			$frmID = isset( $_POST['frmid'] ) ? sanitize_text_field( $_POST['frmid'] ) : '';
 			$formData = SIB_Forms::getForm( $frmID );
@@ -1146,6 +1152,9 @@ For your information, you cannot select a template with the tag {{DOUBLEOPTIN}}.
 		 */
 		public static function ajax_get_templates() {
 			check_ajax_referer( 'ajax_sib_admin_nonce', 'security' );
+			if ( ! current_user_can( 'view_custom_menu' ) ) {
+				wp_send_json_error( 'forbidden', 403 );
+			}
 			$templates = SIB_API_Manager::get_templates();
 			$result = array(
 				'templates' => $templates,
@@ -1158,6 +1167,9 @@ For your information, you cannot select a template with the tag {{DOUBLEOPTIN}}.
 		 */
 		public static function ajax_get_attributes() {
 			check_ajax_referer( 'ajax_sib_admin_nonce', 'security' );
+			if ( ! current_user_can( 'view_custom_menu' ) ) {
+				wp_send_json_error( 'forbidden', 403 );
+			}
 			$attrs = SIB_API_Manager::get_attributes();
 			$result = array(
 				'attrs' => $attrs,
@@ -1170,6 +1182,9 @@ For your information, you cannot select a template with the tag {{DOUBLEOPTIN}}.
 		 */
 		public static function ajax_update_html() {
 			check_ajax_referer( 'ajax_sib_admin_nonce', 'security' );
+			if ( ! current_user_can( 'view_custom_menu' ) ) {
+				wp_send_json_error( 'forbidden', 403 );
+			}
 			$gCaptchaType = isset( $_POST['gCaptchaType']) ? sanitize_text_field($_POST['gCaptchaType']) : '1';
 			$gCaptcha = isset( $_POST['gCaptcha'] ) ? sanitize_text_field($_POST['gCaptcha']) : '0';
 			if ( $gCaptcha != '0' ) {
@@ -1198,6 +1213,9 @@ For your information, you cannot select a template with the tag {{DOUBLEOPTIN}}.
 		 */
 		public static function ajax_copy_origin_form() {
 			check_ajax_referer( 'ajax_sib_admin_nonce', 'security' );
+			if ( ! current_user_can( 'view_custom_menu' ) ) {
+				wp_send_json_error( 'forbidden', 403 );
+			}
 			$pID = isset( $_POST['pid'] ) ? sanitize_text_field( $_POST['pid'] ) : 1;
 			$formData = SIB_Forms::getForm( $pID );
 			// phpcs:ignore
