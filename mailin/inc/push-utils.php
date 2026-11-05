@@ -237,7 +237,7 @@ if ( ! class_exists( 'SIB_Push_Utils' ) ) {
 
 			// Check push application
 			try {
-				$app = self::get_push_application(30 * 86400); // maxAge 30 days to use API key on a regular basis and avoid deactivation
+				$app = self::get_push_application(86400); // maxAge 1 day to use API key on a regular basis and avoid deactivation
 				if (!$app) return false;
 				return !$app->getWordPressSnippetDeactivated();
 			} catch (Exception $e) {

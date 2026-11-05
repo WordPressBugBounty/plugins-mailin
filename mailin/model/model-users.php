@@ -272,10 +272,33 @@ class SIB_Model_Users {
 	/** Update user data to the table */
 	public static function update_element( $data ) {
 		global $wpdb;
-        $query = $wpdb->prepare( 'update ' . $wpdb->prefix . self::TABLE_NAME . ' set info= %s where id= %d;', array( $data['info'], esc_sql( $data['id'] ) ) );
-		$wpdb->query( $query );
+		$update_fields = array( 'info' => $data['info'] );
+		$update_format = array( '%s' );
 
-		return true;
+		if ( isset( $data['listIDs'] ) ) {
+			$update_fields['listIDs'] = $data['listIDs'];
+			$update_format[] = '%s';
+		}
+
+		if ( isset( $data['redirectUrl'] ) ) {
+			$update_fields['redirectUrl'] = $data['redirectUrl'];
+			$update_format[] = '%s';
+		}
+
+		if ( isset( $data['doi_sent'] ) ) {
+			$update_fields['doi_sent'] = $data['doi_sent'];
+			$update_format[] = '%d';
+		}
+
+		$result = $wpdb->update(
+			$wpdb->prefix . self::TABLE_NAME,
+			$update_fields,
+			array( 'id' => $data['id'] ),
+			$update_format,
+			array( '%d' )
+		);
+
+		return false !== $result;
 	}
 
     /**

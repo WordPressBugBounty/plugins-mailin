@@ -537,6 +537,7 @@ if ( ! class_exists( 'SIB_API_Manager' ) ) {
 		 * @param string                   $template_id - template id.
 		 * @param null                     $attributes - attributes.
 		 * @param string                   $code - code.
+		 * @return bool - true if the email was accepted for delivery.
 		 */
 		public static function send_comfirm_email( $to_email, $type = 'confirm', $template_id = '-1', $attributes = null, $code = '' ) {
 			$mailin = new SendinblueApiClient();
@@ -576,7 +577,7 @@ if ( ! class_exists( 'SIB_API_Manager' ) ) {
 				);
 				$data["templateId"] = intval( $template_id );
 				$mailin->sendEmail( $data );
-				return;
+				return SendinblueApiClient::RESPONSE_CODE_CREATED == $mailin->getLastResponseCode();
 			}
 			else if ( intval( $template_id ) > 0 ) {
 				$data = array(
@@ -644,13 +645,14 @@ if ( ! class_exists( 'SIB_API_Manager' ) ) {
 				$data['htmlContent'] = $html_content;
 				$data['subject'] = $subject;
 
-				$res = $mailin->sendEmail( $data );
-
-			} else {
-				$headers[] = 'Content-Type: text/html; charset=UTF-8';
-				$headers[] = "From: $sender_name <$sender_email>";
-				@wp_mail( $to_email, $subject, $html_content, $headers );
+				$mailin->sendEmail( $data );
+				return SendinblueApiClient::RESPONSE_CODE_CREATED == $mailin->getLastResponseCode();
 			}
+
+			$headers[] = 'Content-Type: text/html; charset=UTF-8';
+			$headers[] = "From: $sender_name <$sender_email>";
+			// Keep @ so a mailer warning cannot corrupt the AJAX JSON response; failures still reach wp_mail_failed.
+			return (bool) @wp_mail( $to_email, $subject, $html_content, $headers );
 		}
 
 		/**

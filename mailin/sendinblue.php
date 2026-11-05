@@ -3,7 +3,7 @@
  * Plugin Name: Brevo - Email, SMS, Web Push, Chat, and more.
  * Plugin URI: https://www.brevo.com/?r=wporg
  * Description: Manage your contact lists, subscription forms and all email and marketing-related topics from your wp panel, within one single plugin
- * Version: 3.3.5
+ * Version: 3.3.6
  * Author: Brevo
  * Author URI: https://www.brevo.com/?r=wporg
  * License: GPLv2 or later
@@ -273,6 +273,13 @@ if ( ! class_exists( 'SIB_Manager' ) ) {
 		static $wp_mail_conflict;
 
 		/**
+		 * Mail arguments of the last sib_email() call, after the wp_mail filter ran
+		 *
+		 * @var array|null $last_mail_data
+		 */
+		static $last_mail_data;
+
+		/**
 		 * Class constructor
 		 * Sets plugin url and directory and adds hooks to <i>init</i>. <i>admin_menu</i>
 		 */
@@ -393,19 +400,20 @@ if ( ! class_exists( 'SIB_Manager' ) ) {
                     function wp_mail( $to, $subject, $message, $headers = '', $attachments = array() ) {
                         $message = str_replace( 'NF_SIB', '', $message );
                         $message = str_replace( 'WC_SIB', '', $message );
+                        SIB_Manager::$last_mail_data = null;
                         try {
                             $sent = SIB_Manager::sib_email( $to, $subject, $message, $headers, $attachments );
-                            if ( is_wp_error( $sent ) || ! isset( $sent['code'] ) || 'success' !== $sent['code'] ) {
-				try{
-				    return true;
-				}catch( Exception $e ){
-				    return false;
-				}
-                            }
-                            return true;
                         } catch ( Exception $e ) {
-			    return false;
+                            $sent = new WP_Error( 'wp_mail_failed', $e->getMessage() );
                         }
+                        if ( is_array( $sent ) && isset( $sent['code'] ) && 'success' === $sent['code'] ) {
+                            return true;
+                        }
+                        // Report the arguments after the wp_mail filter, as core does; fall back if it never ran.
+                        $mail_data = is_array( SIB_Manager::$last_mail_data ) ? SIB_Manager::$last_mail_data : compact( 'to', 'subject', 'message', 'headers', 'attachments' );
+                        // Honour the wp_mail() contract: report the failure so callers and loggers can see it.
+                        do_action( 'wp_mail_failed', SIB_Manager::wp_mail_error( $sent, $mail_data ) );
+                        return false;
                     }
                 } else {
                     add_action( 'admin_notices', array( &$this, 'wpMailNotices' ) );
@@ -1078,9 +1086,25 @@ EOT;
 			    $listID = array_unique(array_merge( $listID, $expectedLists ));
             }
 
-			$email = isset( $_POST['email'] ) ? sanitize_email( $_POST['email'] ) : '';
-			if ( ! is_email( $email ) ) {
-				return;
+			$msg = array(
+				'successMsg' => $formData['successMsg'],
+				'errorMsg' => $formData['errorMsg'],
+				'existMsg' => $formData['existMsg'],
+				'invalidMsg' => $formData['invalidMsg'],
+			);
+
+			// Validate the submitted value before sanitizing it: sanitize_email() strips invalid characters,
+			// so "foo()bar@example.com" would otherwise become a different, valid address.
+			$email = isset( $_POST['email'] ) && is_string( $_POST['email'] ) ? trim( $_POST['email'] ) : '';
+			// is_email() accepts leading, trailing and consecutive dots in the local part; FILTER_VALIDATE_EMAIL does not.
+			if ( ! is_email( $email ) || false === filter_var( $email, FILTER_VALIDATE_EMAIL ) || sanitize_email( $email ) !== $email ) {
+				wp_send_json(
+					array(
+						'status' => 'invalid',
+						'msg' => $msg,
+						'turnstileCaptcha' => $turnstileCaptcha,
+					)
+				);
 			}
 
 			$isDoubleOptin = $formData['isDopt'];
@@ -1109,13 +1133,12 @@ EOT;
                  * 1. add record to db
                  * 2. send confirmation email with activate code
                  */
-				$result = "success";
-				// Send a double optin confirm email.
-				if ( 'success' == $result ) {
-					// Add a recode with activate code in db.
-					$activateCode = $this->create_activate_code( $email, $info, $formID, $listID, $redirectUrlInEmail, $unlinkedLists );
-					SIB_API_Manager::send_comfirm_email( $email, 'double-optin', $templateID, $info, $activateCode );
-				}
+				// Add a recode with activate code in db.
+				$activateCode = $this->create_activate_code( $email, $info, $formID, $listID, $redirectUrlInEmail, $unlinkedLists );
+				// Send a double optin confirm email. The contact is only created once it is confirmed,
+				// so a failed send means the subscription is lost and must not be reported as a success.
+				$sent = SIB_API_Manager::send_comfirm_email( $email, 'double-optin', $templateID, $info, $activateCode );
+				$result = $sent ? 'success' : 'failure';
 			} elseif ( $isOptin ) {
 				$result = SIB_API_Manager::create_subscriber( $email, $listID, $info, 'confirm', $unlinkedLists );
 				if ( 'success' == $result ) {
@@ -1125,12 +1148,6 @@ EOT;
 			} else {
 				$result = SIB_API_Manager::create_subscriber( $email, $listID, $info, 'simple', $unlinkedLists );
 			}
-			$msg = array(
-				'successMsg' => $formData['successMsg'],
-				'errorMsg' => $formData['errorMsg'],
-				'existMsg' => $formData['existMsg'],
-				'invalidMsg' => $formData['invalidMsg'],
-			);
 
 			wp_send_json(
 				array(
@@ -1177,11 +1194,44 @@ EOT;
 					'id'    => $data['id'],
 					'email' => $email,
 					'info'  => maybe_serialize( $info ),
+					'listIDs' => maybe_serialize( $listIDs ),
+					'redirectUrl' => $redirectUrl,
+					'doi_sent' => 0,
 				);
 				SIB_Model_Users::update_element( $update_data );
 				$uniqid = $data['code'];
 			}
 			return $uniqid;
+		}
+
+		/**
+		 * Build the WP_Error passed to the wp_mail_failed action when Brevo could not send an email.
+		 *
+		 * @param mixed $sent - result of sib_email(): WP_Error, API error body, or null.
+		 * @param array $mail_data - to, subject, message, headers, attachments.
+		 * @return WP_Error
+		 */
+		static function wp_mail_error( $sent, $mail_data ) {
+			$error_message = '';
+			if ( is_wp_error( $sent ) ) {
+				// Some callers build WP_Error( $message ), which stores the text as the error code.
+				$error_message = $sent->get_error_message();
+				if ( '' === $error_message ) {
+					$error_message = (string) $sent->get_error_code();
+				}
+			} elseif ( is_array( $sent ) ) {
+				if ( ! empty( $sent['message'] ) ) {
+					$error_message = $sent['message'];
+				}
+				if ( isset( $sent['code'] ) ) {
+					$mail_data['brevo_error_code'] = $sent['code'];
+				}
+			}
+			if ( '' === $error_message ) {
+				$error_message = __( 'The email could not be sent through Brevo.', 'mailin' );
+			}
+
+			return new WP_Error( 'wp_mail_failed', $error_message, $mail_data );
 		}
 
 		/**
@@ -1216,6 +1266,8 @@ EOT;
             $data = [];
 		    // Compact the input, apply the filters, and extract them back out.
 			extract( apply_filters( 'wp_mail', compact( 'to', 'subject', 'message', 'headers', 'attachments' ) ) );
+			// Keep the filtered values so a wp_mail_failed payload reports what was actually sent.
+			self::$last_mail_data = compact( 'to', 'subject', 'message', 'headers', 'attachments' );
 
 			if ( !empty( $attachments ) && ! is_array( $attachments ) ) {
 				$attachments = explode( "\n", str_replace( "\r\n", "\n", $attachments ) );
